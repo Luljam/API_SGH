@@ -3,6 +3,7 @@ package br.com.hspm.sgh.model;
 
 public class Internacao {
 
+	private Long nr_seq;
 	private Long cd_prontuario;
 	private String nm_paciente;
 	private String in_sexo;
@@ -34,6 +35,12 @@ public class Internacao {
 	private String dc_tipo_alta_medica;
 	private String nm_vinculo;
 	private String nm_orgao;
+	public Long getNr_seq() {
+		return nr_seq;
+	}
+	public void setNr_seq(Long nr_seq) {
+		this.nr_seq = nr_seq;
+	}
 	public Long getCd_prontuario() {
 		return cd_prontuario;
 	}
@@ -252,6 +259,7 @@ public class Internacao {
 		result = prime * result + ((nr_plano == null) ? 0 : nr_plano.hashCode());
 		result = prime * result + ((nr_procedimento == null) ? 0 : nr_procedimento.hashCode());
 		result = prime * result + ((nr_quarto == null) ? 0 : nr_quarto.hashCode());
+		result = prime * result + ((nr_seq == null) ? 0 : nr_seq.hashCode());
 		result = prime * result + ((sg_cid == null) ? 0 : sg_cid.hashCode());
 		result = prime * result + ((st_leito == null) ? 0 : st_leito.hashCode());
 		result = prime * result + ((tx_observacao == null) ? 0 : tx_observacao.hashCode());
@@ -406,6 +414,11 @@ public class Internacao {
 				return false;
 		} else if (!nr_quarto.equals(other.nr_quarto))
 			return false;
+		if (nr_seq == null) {
+			if (other.nr_seq != null)
+				return false;
+		} else if (!nr_seq.equals(other.nr_seq))
+			return false;
 		if (sg_cid == null) {
 			if (other.sg_cid != null)
 				return false;
@@ -423,7 +436,4 @@ public class Internacao {
 			return false;
 		return true;
 	}
-	
-	
-
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,23 +30,16 @@ public class InternacaoController {
 			return ResponseEntity.ok(internacoes);
 	}
 	
-	//@GetMapping("/")
-	//public ResponseEntity<List<Internacao>> getInternacoes(){
+	@GetMapping("/paciente/{prontuarioId}")
+	public ResponseEntity<List<Internacao>> getInternacoesPaciente(@PathVariable Long prontuarioId){
 		
-	//	List<Internacao> internacoes = InternacaoDto.Internacoes();
+		List<Internacao> internacoes = InternacaoDto.GetPaciente(prontuarioId);
 		
 		
-	//	if(internacoes == null) {
-	//		return ResponseEntity.notFound().build();
-	//	}
-	//	return ResponseEntity.ok(internacoes);
-	//}
-	
-	
-	// TODO: Fazer parametros de consulta
-	//  @RequestMapping(path = "/mno/objectKey/{id}/{name}", method = RequestMethod.GET)
-	// public Book getBook(@PathVariable int id, @PathVariable String name) {
-	    // code here
-	// }
-	
+		if(internacoes == null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(internacoes);
+	}
+		
 }
